@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat Bot</title>
+	<link rel="icon" href="../static/images/1680802273420-removebg.png" type="image/x-icon">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	<style>
+		.ChatBgImg{
+			width: 100%;
+			/*height: 100%;*/
+			/*position: fixed;*/
+			z-index: -100px;
+		}
+		.ChatArea{
+			height: 95vh;
+			margin: 0;
+			background-color:mistyrose;
+			background-repeat: no-repeat;
+			background-size: cover;
+			overflow: hidden;
+		}
+		.Messanger{
+			height: 100%;
+			overflow-y: scroll;
+			padding-bottom: 150px
+		}
+		.chathead{
+			margin-top: 1%;
+			margin-bottom:1%;
+			background-color: green; 
+			padding-left: 50px;
+		}
+		.chathead img{
+			width:50px;
+			height:50px;
+
+		}
+		.Bot{
+			float: left;
+		}
+		.BotLeft img{
+			width: 50px;
+			height: 50px;
+			border-radius: 20px;
+			margin: 00px 10px 0 10px;
+		}
+		.BotRight{
+			max-width: 70%;
+			float: left;
+			background: #ececec;
+			min-height: 50px;
+			padding: 15px 30px;
+			text-align: justify;
+			-webkit-border-top-right-radius: 15px;
+			-webkit-border-bottom-left-radius: 15px;
+			-moz-border-radius-topright: 15px;
+			-moz-border-radius-bottomleft: 15px;
+			border-top-right-radius: 15px;
+			border-bottom-left-radius: 15px;
+			font-weight: bold;
+		}
+		.ChatArea .well{
+			padding:0;
+			background-color: black;
+
+		}
+
+		.User{
+			float: right;
+		}
+		.UserLeft{
+			float: right;
+			max-width: 70%;
+			background: #579ffb;
+			min-height: 50px;
+			padding: 15px 30px;
+			text-align: justify;
+			-webkit-border-top-right-radius: 15px;
+			-webkit-border-bottom-left-radius: 15px;
+			-moz-border-radius-topright: 15px;
+			-moz-border-radius-bottomleft: 15px;
+			border-top-right-radius: 15px;
+			border-bottom-left-radius: 15px;
+			font-weight: bold;
+		}
+		.UserRight img{
+			float: right;
+			width: 50px;
+			height: 50px;
+			border-radius: 20px;
+			margin: 00px 10px 0 10px;
+		}
+
+		.container-fluid{
+			margin-bottom: 30px
+		}
+		.ChatArea .TextArea{
+			background-color: black;
+			margin-top:35%;
+			padding-left:10px;
+			padding-right: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+		.TextArea .msger-inputarea {
+		  display: flex;
+		  padding: 10px;
+		  border-top: var(--border);
+		  background-color: black;
+		}
+		.msger-inputarea * {
+		  padding: 7px;
+		  border: none;
+		  border-radius: 3px;
+		  font-size: 1em;
+		}
+		.msger-input_div
+		{
+			flex:1;
+			background:black;
+		}
+		.msger-input {
+		  background: #ddd;
+		  width:-webkit-fill-available;
+		}
+		.msger-send-btn {
+		  margin-left: 0px;
+		  background: rgb(0,200,130);
+		  color: #fff;
+		  font-weight: bold;
+		  cursor: pointer;
+		  transition: background 0.23s;
+		  
+		}
+		.msger-send-btn_div
+		{
+			position: sticky;
+			background: black;
+		}
+		.mid_textarea{
+			background: black;
+			margin: 0% 1% 0% 0%;
+			width: 40px;
+		}
+		.msger-voice_btn
+		{
+			height: 36px;
+			width: 36px;
+			border-radius: 50%;
+			font-size: 20px;
+		}
+		.msger-voice_btn:hover{
+			background-color: grey;
+			color: white;
+			
+		}
+		.box {
+		  box-shadow:
+		  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+		  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+		  0 12.5px 10px rgba(0, 0, 0, 0.06),
+		  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+		  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+		  0 100px 80px rgba(0, 0, 0, 0.12);
+		  
+		  min-height: 200px;
+		  width: 55vw;
+		  margin:10px auto;
+		  border-radius: 15px;
+		  border-style:solid;
+		}
+		.box1
+		{
+			-webkit-border-top-left-radius: 10px;
+			-webkit-border-top-right-radius: 10px;
+			-moz-border-radius-topleft: 10px;
+			-moz-border-radius-topright: 10px;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+		.box2
+		{
+			-webkit-border-bottom-right-radius: 10px;
+			-webkit-border-bottom-left-radius: 10px;
+			-moz-border-radius-bottomright: 10px;
+			-moz-border-radius-bottomleft: 10px;
+			border-bottom-right-radius: 10px;
+			border-bottom-left-radius: 10px;
+		}
+		.oneone #one
+		{
+			size: 10px;
+			margin-top: 2%;
+			margin-left:5%;
+		    width: 300px;
+	        -webkit-filter: drop-shadow(-1px -2px 2px white);
+		}
+		#two 
+		{
+
+			float:right;
+			margin-top: 1.5%;
+			margin-right:12%;
+			-webkit-filter: drop-shadow(-1px -2px 3px red);
+	        filter: drop-shadow(-1px -2px 3px red);
+		}
+		
+		.row{
+			margin-left:0px;
+		}
+		.msger-voice_btn i {
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    height: 100%;
+		}
+		@keyframes pulse-animation {
+	    0% {
+	        transform: scale(1);
+	    }
+	    50% {
+	        transform: scale(1.2);
+	    }
+	    100% {
+	        transform: scale(1);
+	    }
+	}
+
+	.msger-voice_btn.listening {
+	    animation: pulse-animation 1s infinite;
+	}
+	#voiceOutputBtn{
+		visibility: hidden;
+	}
+	@media (max-width: 768px) {
+            .ChatArea {
+                height: 100vh; /* Use the full viewport height on small screens */
+            }
+            .box {
+                width: 90vw; /* Adjust the width for smaller screens */
+                margin: 10px auto;
+            }
+            /* Add more responsive styles as needed */
+        }
+          .picArea {
+	    padding: 0;
+	    margin-left: 3%;
+	    margin-right: 0%;
+	    margin-top: 5%;
+	    height: 80vh;
+	    overflow: hidden; /* To ensure the image doesn't overflow */
+	}
+
+.picArea img {
+    width: 100%; /* Make the image cover the entire width of the container */
+    height: 100%; /* Make the image cover the entire height of the container */
+    object-fit: cover; /* Maintain the aspect ratio and cover the container */
+   
+}
+	</style>
+</head>
+<body style="background:beige;">
+	<div >
+		<div class="col-md-9 ChatArea box" style="margin-top:1%;padding: 0;margin-left: 5%">
+			<div class="well box1"><h6 style="text-align: center;font-size:xx-large;color: white;">Tech Talk Assist</h6></div>
+				<div class="Messanger">
+
+
+				</div>
+
+			<div class="TextArea box2">
+				<div>
+				 <div class="msger-inputarea">
+				    <div class="msger-input_div">
+				        <input type="text" class="msger-input" id="user-input" placeholder="Enter your message...">
+				    </div>
+				    
+				    <div class="msger-send-btn_div">
+				        <button id="sendBtn" class="msger-send-btn">Send</button>
+				    </div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 picArea">
+				<img src="static/images/8107a1c7-b43b-4385-9294-1912ec12a62c-rbg.png">
+		</div>
+	</div>
+</body>
+</html>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var sendBtn = document.getElementById("sendBtn");
+    var userInput = document.getElementById("user-input");
+    var messanger = document.querySelector(".Messanger");
+    // Function to send a message and handle response
+    function sendMessage(msg) {
+        if (msg.trim() === "") return;
+
+        var userDivStart = '<div class="container-fluid"><div class="User col-md-8"><div class="UserRight col-md-2 pull-right"><img src="https://e1.pxfuel.com/desktop-wallpaper/732/405/desktop-wallpaper-cartoon-dp-boy-for-whatsapp-handsome-boy-cartoon.jpg"></div><div class="UserLeft text-center">';
+        var userDivEnd = '</div></div></div>';
+        
+        var resDivStart = '<div class="container-fluid"><div class="Bot col-md-8"><div class="BotLeft col-md-2 text-center"><img src="https://img.freepik.com/free-photo/computer-chip-connects-electrical-components-powering-global-communications-industry-generated-by-artificial-intelligence_24877-80915.jpg?t=st=1704381084~exp=1704384684~hmac=12681ed319b9d02bf47c1d4d9e9e885eff89ad2dddf5ff5024ee16f603a35d24&w=1060"></div><div class="BotRight ">';
+        var resDivEnd = '</div></div></div>';
+        
+        messanger.innerHTML += userDivStart + msg + userDivEnd;
+        messanger.scrollTop = messanger.scrollHeight;
+        userInput.value = "";
+        
+        sendBtn.innerHTML = '<img src="static/images/loading1.gif" height="19" width="34">';
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                messanger.innerHTML += resDivStart + xhr.responseText + resDivEnd;
+                messanger.scrollTop = messanger.scrollHeight;
+                sendBtn.innerHTML = 'Send';
+                speak(xhr.responseText);
+            }
+        };
+        xhr.send("Msg=" + encodeURIComponent(msg));
+    }
+    
+    // Trigger voice output of the last bot response
+
+    // Send message when Enter key is pressed in the input field
+    userInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage(userInput.value);
+        }
+    });
+    
+    // Send message when Send button is clicked
+    sendBtn.addEventListener("click", function() {
+        sendMessage(userInput.value);
+    });
+});
+
+
+</script>
