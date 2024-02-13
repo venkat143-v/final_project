@@ -78,37 +78,50 @@ def process_message():
         na=file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
         
-        with open("emotion_model.json", "r") as json_file:
-            loaded_model_json = json_file.read()
-        loaded_model = model_from_json(loaded_model_json)
-        loaded_model.load_weights('emotion_model.h5')
+        def gif_to_jpg(gif_path,output_folder):
+            gif = Image.open(gif_path)
+            for frame_number in range(gif.n_frames):
+                gif.seek(frame_number)
+                frame = gif.convert('RGB')
+                frame.save(f"{output_folder}\\modified.jpg")
 
-        # Compile the loaded model (necessary for predictions)
-        loaded_model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.0001), metrics=['accuracy'])
-
-        # Function to preprocess an image for prediction
-        def preprocess_image(image_path):
-            img = load_img(image_path, target_size=(150, 150))
-            img_array = img_to_array(img)
-            img_array = np.expand_dims(img_array, axis=0)
-            img_array /= 255.0
-            return img_array
-
+        def png_to_jpg(img_path):
+            im = Image.open(img_path) 
+            rgb_im = im.convert("RGB") 
+            rgb_im.save(r"E:\newfinal\static\data\modified.jpg")
+            
+        loaded_model = tf.keras.models.load_model('ec2Types.h5', compile=False)
+        loaded_model.compile(Adamax(learning_rate= 0.001), loss= 'categorical_crossentropy', metrics= ['accuracy'])
+        
         # Test image path
         test_image_path = r"static/data/"+na # Replace with the path of the test image
+        image = Image.open(test_image_path)
+        
+        file_extension = os.path.splitext(test_image_path)[-1].lower()
 
-        # Preprocess the test image for prediction
-        test_image = preprocess_image(test_image_path)
-
-        # Make predictions on the test image
-        prediction = loaded_model.predict(test_image)
-
-        # Classify the prediction (assuming binary classification)
-        os.remove(test_image_path)
-        if(prediction[0][0]>=0.5):
-            res="Dog"
+        if file_extension in [".png"]:
+            png_to_jpg(test_image_path)
+            image = Image.open(r"E:\newfinal\static\data\modified.jpg")
+            
+        elif file_extension in [".gif"]:
+            gif_to_jpg(test_image_path, r"E:\newfinal\static\data")
+            image = Image.open(r"E:\newfinal\static\data\modified.jpg")
         else:
-            res="Cat"
+            image = Image.open(test_image_path)
+        # Preprocess the test image for prediction
+        # Preprocess the image
+        img = image.resize((224, 224))
+        img_array = tf.keras.preprocessing.image.img_to_array(img)
+        img_array = tf.expand_dims(img_array, 0)
+        classes=['Capacitor', 'IC', 'Resistor', 'Transistor']
+        # Make predictions
+        predictions = loaded_model.predict(img_array)
+        class_labels = classes
+        score = tf.nn.softmax(predictions[0])
+        res=f"{class_labels[tf.argmax(score)]}"
+        if file_extension in ['.png','.gif']:
+            os.remove(r"E:\newfinal\static\data\modified.jpg")
+        os.remove(test_image_path)
         return res
     else:
         return render_template("indeximgaudtxtvoi.html")
