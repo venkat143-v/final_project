@@ -119,10 +119,18 @@ def process_message():
         predictions = loaded_model.predict(img_array)
         class_labels = classes
         score = tf.nn.softmax(predictions[0])
-        res=f"{class_labels[tf.argmax(score)]}"
+        res1=f"{class_labels[tf.argmax(score)]}"
         if file_extension in ['.png','.gif']:
             os.remove(r"E:\newfinal\static\data\modified.jpg")
         os.remove(test_image_path)
+        if(res1=="IC"):
+            res="It is an IC. An integrated circuit (IC), sometimes called a chip, microchip or microelectronic circuit, is a semiconductor wafer on which thousands or millions of tiny resistors, capacitors, diodes and transistors are fabricated. An IC can function as an amplifier, oscillator, timer, counter, logic gate, computer memory, microcontroller or microprocessor."
+        elif(res1=="Capacitor"):
+            res="It is a Capacitor. A capacitor is a two-terminal electrical device that can store energy in the form of an electric charge. It consists of two electrical conductors that are separated by a distance.  The space between the conductors may be filled by vacuum or with an insulating material known as a dielectric. The ability of the capacitor to store charges is known as capacitance."
+        elif(res1="Resistor"):
+            res="It is a resistor. A passive electrical component with two terminals that are used for either limiting or regulating the flow of electric current in electrical circuits. It is made of copper wires which are coiled around a ceramic rod and the outer part of the resistor is coated with an insulating paint."
+        else:
+            res="It is a transistor. A transistor is a type of semiconductor device that can be used to conduct and insulate electric current or voltage. A transistor basically acts as a switch and an amplifier. In simple words, we can say that a transistor is a miniature device that is used to control or regulate the flow of electronic signals."
         return res
     else:
         return render_template("indeximgaudtxtvoi.html")
