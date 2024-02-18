@@ -16,14 +16,14 @@
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-	    <style>
-        .ChatBgImg{
-            width: 100%;
-            /*height: 100%;*/
-            /*position: fixed;*/
-            z-index: -100px;
-        }
-        .ChatArea{
+	<style>
+		.ChatBgImg{
+			width: 100%;
+			/*height: 100%;*/
+			/*position: fixed;*/
+			z-index: -100px;
+		}
+		.ChatArea{
 			height: 85vh;
 			margin: 0;
 			background-color:mistyrose;
@@ -31,187 +31,191 @@
 			background-size: cover;
 			overflow: hidden;
 		}
-        .Messanger{
-            height: 100%;
-            overflow-y: scroll;
-            padding-bottom: 150px
-        }
-        .chathead{
-            margin-top: 1%;
-            margin-bottom:1%;
-            background-color: green; 
-            padding-left: 50px;
-        }
-        .chathead img{
-            width:50px;
-            height:50px;
+		.Messanger{
+			height: 100%;
+			overflow-y: scroll;
+			padding-bottom: 150px
+		}
+		.chathead{
+			margin-top: 1%;
+			margin-bottom:1%;
+			background-color: green; 
+			padding-left: 50px;
+		}
+		.chathead img{
+			width:50px;
+			height:50px;
 
-        }
-        .Bot{
-            float: left;
-        }
-        .BotLeft img{
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            margin: 00px 10px 0 10px;
-        }
-        .BotRight{
-            max-width: 70%;
-            float: left;
-            background: #ececec;
-            min-height: 50px;
-            padding: 15px 30px;
-            text-align: justify;
-            -webkit-border-top-right-radius: 15px;
-            -webkit-border-bottom-left-radius: 15px;
-            -moz-border-radius-topright: 15px;
-            -moz-border-radius-bottomleft: 15px;
-            border-top-right-radius: 15px;
-            border-bottom-left-radius: 15px;
-            font-weight: bold;
-        }
-        .ChatArea .well{
-            padding:0;
-            background-color: black;
+		}
+		.Bot{
+			float: left;
+		}
+		.BotLeft img{
+			width: 50px;
+			height: 50px;
+			border-radius: 20px;
+			margin: 00px 10px 0 10px;
+		}
+		.BotRight{
+			max-width: 70%;
+			float: left;
+			background: #ececec;
+			min-height: 50px;
+			padding: 15px 30px;
+			text-align: justify;
+			-webkit-border-top-right-radius: 15px;
+			-webkit-border-bottom-left-radius: 15px;
+			-moz-border-radius-topright: 15px;
+			-moz-border-radius-bottomleft: 15px;
+			border-top-right-radius: 15px;
+			border-bottom-left-radius: 15px;
+			font-weight: bold;
+		}
+		.ChatArea .well{
+			padding:0;
+			background-color: black;
 
-        }
+		}
 
-        .User{
-            float: right;
-        }
-        .UserLeft{
-            float: right;
-            max-width: 70%;
-            background: #579ffb;
-            min-height: 50px;
-            padding: 15px 30px;
-            text-align: justify;
-            -webkit-border-top-right-radius: 15px;
-            -webkit-border-bottom-left-radius: 15px;
-            -moz-border-radius-topright: 15px;
-            -moz-border-radius-bottomleft: 15px;
-            border-top-right-radius: 15px;
-            border-bottom-left-radius: 15px;
-            font-weight: bold;
-        }
-        .UserRight img{
-            float: right;
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            margin: 00px 10px 0 10px;
-        }
+		.User{
+			float: right;
+		}
+		.UserLeft{
+			float: right;
+			max-width: 70%;
+			background: #579ffb;
+			min-height: 50px;
+			padding: 15px 30px;
+			text-align: justify;
+			-webkit-border-top-right-radius: 15px;
+			-webkit-border-bottom-left-radius: 15px;
+			-moz-border-radius-topright: 15px;
+			-moz-border-radius-bottomleft: 15px;
+			border-top-right-radius: 15px;
+			border-bottom-left-radius: 15px;
+			font-weight: bold;
+		}
+		.UserRight img{
+			float: right;
+			width: 50px;
+			height: 50px;
+			border-radius: 20px;
+			margin: 00px 10px 0 10px;
+		}
 
-        .container-fluid{
-            margin-bottom: 30px
+		.container-fluid{
+			margin-bottom: 30px
+		}
+		.ChatArea .TextArea{
+			background-color: black;
+			margin-top:35%;
+			padding-left:10px;
+			padding-right: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+		.TextArea .msger-inputarea {
+		  display: flex;
+		  padding: 10px;
+		  border-top: var(--border);
+		  background-color: black;
+		}
+		.msger-inputarea * {
+		  padding: 7px;
+		  border: none;
+		  border-radius: 3px;
+		  font-size: 1em;
+		}
+		.msger-input_div
+		{
+			flex:1;
+			background:black;
+		}
+		.msger-input {
+		  background: #ddd;
+		  width:-webkit-fill-available;
+		}
+		.msger-send-btn {
+		  margin-left: 0px;
+		  background: rgb(0,200,130);
+		  color: #fff;
+		  font-weight: bold;
+		  cursor: pointer;
+		  transition: background 0.23s;
+		  
+		}
+		.msger-send-btn_div
+		{
+			position: sticky;
+			background: black;
+		}
+		.mid_textarea{
+			background: black;
+			margin: 0% 1% 0% 0%;
+			width: 40px;
+		}
+		.msger-voice_btn
+		{
+			height: 36px;
+			width: 36px;
+			border-radius: 50%;
+			font-size: 20px;
+		}
+		.msger-voice_btn:hover{
+			background-color: grey;
+			color: white;
+			
+		}
+		.picright1 img,
+        .picright2 img,
+        .picright3 img,
+        .picright4 img,
+        .picright5 img,
+        .picright6 img,
+        .picright7 img,
+        .picright8 img,
+        .picright9 img {
+            width: 100%; /* Make the images scale with the container */
+            max-width: 130px; /* Set a max-width to prevent them from getting too large */
+            height: auto; /* Allow the height to adjust proportionally */
+            margin-top: 10px; /* Add some spacing between images */
+            margin-bottom: 10px;
         }
-        .ChatArea .TextArea{
-            background-color: black;
-            margin-top:35%;
-            padding-left:10px;
-            padding-right: 10px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-        .TextArea .msger-inputarea {
-          display: flex;
-          padding: 10px;
-          border-top: var(--border);
-          background-color: black;
-        }
-        .msger-inputarea {
-            display: flex;
-            padding: 10px;
-            margin-left: 1.5%;
-            border-top: var(--border);
-            background-color: black;
-        }
-
-        .msger-input_div {
-            flex: 1;
-            background: black;
-        }
-
-        .msger-input {
-            background: #ddd;
-            width: -webkit-fill-available;
-            height: 90%;
-        }
-
-        .msger-send-btn_div {
-            position: sticky;
-            background: black;
-            margin-right: 2%;
-        }
-
-        .msger-send-btn {
-            margin-left: 0px;
-            background: rgb(0, 200, 130);
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            height: 90%;
-            width: 110%;
-            border-radius: 10%;
-            transition: background 0.23s;
-        }
-        .msger-send-btn:hover {
-            background-color: #45a049;
-        }
-        .mid_textarea {
-            background: black;
-            margin: 0% 1% 0% 0%;
-            width: 50px;
-        }
-
-        .msger-voice_btn {
-            height: 37px;
-            width: 37px;
-            border-color: red;
-            border-radius: 50%;
-            font-size: 20px;
-        }
-
-        .msger-voice_btn:hover {
-            background-color: grey;
-            color: white;
-        }
-        .box {
-          box-shadow:
-          0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-          0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-          0 12.5px 10px rgba(0, 0, 0, 0.06),
-          0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-          0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-          0 100px 80px rgba(0, 0, 0, 0.12);
-          
-          min-height: 200px;
-          width: 55vw;
-          margin:10px auto;
-          border-radius: 15px;
-          border-style:solid;
-        }
-        .box1
-        {
-            -webkit-border-top-left-radius: 10px;
-            -webkit-border-top-right-radius: 10px;
-            -moz-border-radius-topleft: 10px;
-            -moz-border-radius-topright: 10px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        .box2
-        {
-            -webkit-border-bottom-right-radius: 10px;
-            -webkit-border-bottom-left-radius: 10px;
-            -moz-border-radius-bottomright: 10px;
-            -moz-border-radius-bottomleft: 10px;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-        }
-        .oneone #one
+		.box {
+		  box-shadow:
+		  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+		  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+		  0 12.5px 10px rgba(0, 0, 0, 0.06),
+		  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+		  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+		  0 100px 80px rgba(0, 0, 0, 0.12);
+		  
+		  min-height: 200px;
+		  width: 55vw;
+		  margin:10px auto;
+		  border-radius: 15px;
+		  border-style:solid;
+		}
+		.box1
+		{
+			-webkit-border-top-left-radius: 10px;
+			-webkit-border-top-right-radius: 10px;
+			-moz-border-radius-topleft: 10px;
+			-moz-border-radius-topright: 10px;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+		.box2
+		{
+			-webkit-border-bottom-right-radius: 10px;
+			-webkit-border-bottom-left-radius: 10px;
+			-moz-border-radius-bottomright: 10px;
+			-moz-border-radius-bottomleft: 10px;
+			border-bottom-right-radius: 10px;
+			border-bottom-left-radius: 10px;
+		}
+		.oneone #one
 		{
 			margin-top: 1%;
 			margin-left:5%;
@@ -229,35 +233,35 @@
 			-webkit-filter: drop-shadow(-1px -2px 3px red);
 	        filter: drop-shadow(-1px -2px 3px red);
 		}
-        
-        .row{
-            margin-left:0px;
-        }
-        .msger-voice_btn i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-        @keyframes pulse-animation {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.2);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
+		
+		.row{
+			margin-left:0px;
+		}
+		.msger-voice_btn i {
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    height: 100%;
+		}
+		@keyframes pulse-animation {
+	    0% {
+	        transform: scale(1);
+	    }
+	    50% {
+	        transform: scale(1.2);
+	    }
+	    100% {
+	        transform: scale(1);
+	    }
+	}
 
-    .msger-voice_btn.listening {
-        animation: pulse-animation 1s infinite;
-    }
-    #voiceOutputBtn{
-        visibility: hidden;
-    }
-    @media (max-width: 768px) {
+	.msger-voice_btn.listening {
+	    animation: pulse-animation 1s infinite;
+	}
+	#voiceOutputBtn{
+		visibility: hidden;
+	}
+	@media (max-width: 768px) {
             .ChatArea {
                 height: 100vh; /* Use the full viewport height on small screens */
             }
@@ -267,83 +271,7 @@
             }
             /* Add more responsive styles as needed */
         }
-        .image-input-container {
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            width: 10%;
-            margin-bottom: 0px;
-            font-size: x-large;
-        }
-
-        .image-input {
-            position: relative;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-
-        .image-upload-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: darkgrey;
-            color: #fff;
-            border-radius: 9px;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 50%;
-            height: 90%;
-
-            margin-left: 30%;
-            padding: 0px;
-        }
-
-        .image-upload-label:hover {
-            background-color: grey;
-        }
-        .audio-input-container {
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            width: 10%;
-            margin-bottom: 0px;
-            font-size: x-large;
-        }
-
-        .audio-input {
-            position: relative;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-
-        .audio-upload-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: darkgrey;
-            color: #fff;
-            border-radius: 9px;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-            height: 90%;
-
-            margin-left: 0%;
-            padding: 0px;
-        }
-
-        .audio-upload-label:hover {
-            background-color: grey;
-        }
-          .picArea {
+         .picArea {
 	    padding: 0;
 	    margin-left: 3%;
 	    margin-right: 0%;
@@ -358,7 +286,7 @@
     object-fit: cover; /* Maintain the aspect ratio and cover the container */
    
 }
-    </style>
+	</style>
 </head>
 <body style="background:beige;">
 	<div class="oneone">
@@ -448,3 +376,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 </script>
+
