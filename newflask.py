@@ -14,7 +14,7 @@ import time
 import tensorflow as tf
 from tensorflow.keras.models import model_from_json
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.optimizers import Adamz, Adamax
+from tensorflow.keras.optimizers import Adam, Adamax
 import cv2
 import speech_recognition as sr
 import webbrowser 
