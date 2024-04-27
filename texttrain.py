@@ -55,7 +55,7 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=
 model.summary()
 
 # Train the model
-epochs = 500  # You can adjust this number based on your needs
+epochs = 1000  # You can adjust this number based on your needs
 history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
 # Save the trained model
