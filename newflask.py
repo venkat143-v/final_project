@@ -66,12 +66,6 @@ def process_message():
                     res=lbc.check(inp)
                     break
         return res
-    elif 'Audio' in request.files:
-        # Handle audio upload
-        audio_file = request.files['Audio']
-        res="audio file received venkat"
-        return res
-
     elif 'Image' in request.files:
         # Image upload input
         file = request.files['Image']
